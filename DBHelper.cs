@@ -7,6 +7,9 @@ using LitJson;
 using System.Data.SQLite;
 namespace YCtimer
 {
+    /// <summary>
+    /// SQLite数据库操作类
+    /// </summary>
     public static class DBHelper
     {
         public static SQLiteHelper sqliteHelper ;
@@ -18,14 +21,13 @@ namespace YCtimer
            OpenDB();          
         }
 
-        public static void Begin()
-        {
-            return;
-        }
-
-        public static void OpenDB(){           
-            conn = new SQLiteConnection(config.DataSource);
-            Log("dbpath:" + config.DataSource);           
+     
+        /// <summary>
+        /// 打开数据库
+        /// </summary>
+        public static void OpenDB(){
+            conn = new SQLiteConnection(config.DataSource);//连接数据库，config.DataSource数据库连接字符串
+            Log("dbpath:" + config.DataSource); //打印日志          
             cmd = new SQLiteCommand();
             cmd.Connection = conn;
             if (conn.State != System.Data.ConnectionState.Open)
@@ -37,6 +39,9 @@ namespace YCtimer
             Log("new sqliteHelper");
         }
 
+        /// <summary>
+        /// 关闭数据库连接
+        /// </summary>
         public static void CloseDB()
         {
             Log(" conn.Close()");
