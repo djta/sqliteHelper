@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using YCFramework.Common;
-using LitJson;
+using LitJson;//引入JSON类库
 using System.Data.SQLite;
 namespace YCtimer
 {
@@ -59,7 +59,11 @@ namespace YCtimer
         {
             Log(msg, "i");
         }
-
+        /// <summary>
+        /// 记录日志
+        /// </summary>
+        /// <param name="msg">日志内容</param>
+        /// <param name="level">日志级别，分别为I,W,D,E，开发人员你懂其含义的</param>
         public static void Log(string msg, string level)
         {
             Dictionary<string, object> dic = new Dictionary<string, object>();
